@@ -57,9 +57,13 @@ Here are several `Commands` that you can use :
 
 ## Screenshots
 Here are some screenshots of the App :
-- Backend
+- Backend :
+   - Get All Todos
+     ![Get All Todos](assets/backend/get-all-todos.png)
    - Create Todo
      ![Create Todo](assets/backend/create-todo.png)
+   - Update Todo
+     ![Update Todo](assets/backend/update-todo.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
