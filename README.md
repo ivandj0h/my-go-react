@@ -46,6 +46,21 @@ For Usage, you can use several ways :
 - Run `npm run test:coverage` inside `frontend` directory
 - ... `and so on`
 
+Here are several `Commands` that you can use :
+
+| Command                                                            | Description                    |
+|--------------------------------------------------------------------|--------------------------------|
+| `go mod init github.com/ivandi1980/my-go-react`                    | Initialize `Go` App            |
+| `yarn create vite frontend -- --template react-ts`                 | Create client App using `vite` |
+| `yarn add @mantine/hooks @mantine/core swr @primer/octicons-react` | `Dependencies` Installation    |
+
+
+## Screenshots
+Here are some screenshots of the App :
+- Backend
+   - Create Todo
+     ![Create Todo](assets/backend/create-todo.png)
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 `Please make sure to update tests as appropriate`.
