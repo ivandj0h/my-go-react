@@ -15,19 +15,19 @@ function AddTodo({ mutate }: { mutate: KeyedMutator<Todo[]> }) {
     },
   });
 
-  const createTodo = async (values: { title: string; body: string }) => {
-    const updatedTodos = await fetch(`${ENDPOINT}/api/v1`, {
+  async function createTodo(value: { title: string; body: string }) {
+    const updatedTodos = await fetch(`${ENDPOINT}/api/v1/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify(value),
     }).then((res) => res.json());
 
-    mutate(updatedTodos, false);
+    mutate(updatedTodos);
     form.reset();
     setOpen(false);
-  };
+  }
 
   return (
     <>
@@ -45,17 +45,16 @@ function AddTodo({ mutate }: { mutate: KeyedMutator<Todo[]> }) {
             mb={12}
             label="Body"
             placeholder="Tell me more about it..."
-            {...form.getInputProps("title")}
+            {...form.getInputProps("body")}
           />
           <Button type="submit">Create Todo</Button>
         </form>
       </Modal>
 
       <Group position="center">
-        <Box>
-          <h3>My Go React App</h3>
-        </Box>
         <Button
+          fullWidth
+          mb={12}
           leftIcon={<IconDatabase />}
           variant="filled"
           onClick={() => setOpen(true)}

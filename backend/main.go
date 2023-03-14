@@ -34,7 +34,7 @@ func main() {
 	})
 
 	// Create a new todo
-	app.Post("/api/v1/todo", func(c *fiber.Ctx) error {
+	app.Post("/api/v1/todos", func(c *fiber.Ctx) error {
 		todo := &Todo{}
 
 		if err := c.BodyParser(todo); err != nil {
@@ -48,7 +48,7 @@ func main() {
 	})
 
 	// Update a todo
-	app.Patch("/api/v1/todo/:id/done", func(c *fiber.Ctx) error {
+	app.Patch("/api/v1/todos/:id/done", func(c *fiber.Ctx) error {
 		id, err := c.ParamsInt("id")
 
 		if err != nil {
