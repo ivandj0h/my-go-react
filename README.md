@@ -64,6 +64,9 @@ Here are some screenshots of the App :
      ![Create Todo](assets/backend/create-todo.png)
    - Update Todo
      ![Update Todo](assets/backend/update-todo.png)
+- Frontend :
+   - Todos Interface
+     ![Get All Todos](assets/frontend/create-todo.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
