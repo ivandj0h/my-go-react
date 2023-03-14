@@ -15,12 +15,19 @@ type Todo struct {
 func main() {
 	app := fiber.New()
 
-	todos := []Todo{}
+	var todos []Todo
 
+	// Health check
 	app.Get("/api/v1/health-check", func(c *fiber.Ctx) error {
 		return c.SendString("OK")
 	})
 
+	// Get all todos
+	app.Get("/api/v1/todos", func(c *fiber.Ctx) error {
+		return c.JSON(todos)
+	})
+
+	// Create a new todo
 	app.Post("/api/v1/todo", func(c *fiber.Ctx) error {
 		todo := &Todo{}
 
@@ -32,6 +39,23 @@ func main() {
 		todos = append(todos, *todo)
 
 		return c.JSON(todo)
+	})
+
+	// Update a todo
+	app.Patch("/api/v1/todo/:id/done", func(c *fiber.Ctx) error {
+		id, err := c.ParamsInt("id")
+
+		if err != nil {
+			return c.Status(400).SendString("Invalid ID")
+		}
+
+		for i, t := range todos {
+			if t.ID == id {
+				todos[i].Done = true
+				break
+			}
+		}
+		return c.JSON(todos)
 	})
 
 	log.Fatal(app.Listen(":9999"))
